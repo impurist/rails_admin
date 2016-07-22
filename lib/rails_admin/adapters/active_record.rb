@@ -225,7 +225,7 @@ module RailsAdmin
         end
 
         def build_statement_for_enum
-          return if @value.blank?
+          return if @value.blank? || @value.is_a?(String)
           ["(#{@column} IN (?))", Array.wrap(@value)]
         end
 
